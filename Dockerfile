@@ -12,8 +12,10 @@
 
 # escape='
 
-FROM debian:buster
+FROM 	debian:buster
 COPY	srcs/conf /root/conf
 COPY	srcs/setup.sh	/
-
-RUN	sh setup.sh
+COPY	srcs/lemp.sh /
+COPY	srcs/ssl /ssl
+RUN		sh setup.sh
+CMD 	sh lemp.sh

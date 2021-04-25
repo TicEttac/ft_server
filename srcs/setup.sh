@@ -21,13 +21,6 @@ WPG="latest.tar.gz"
 	chmod 660 /var/www/html/phpmyadmin/config.inc.php;
 	chown -R www-data:www-data /var/www/html/phpmyadmin;
 	rm /etc/nginx/sites-enabled/default;
-	if [$AUTOINDEX == off]
-	then
-		mv /root/conf/serve.com /etc/nginx/sites-enabled/;
-	else
-		mv /root/conf/serv_index.com /etc/nginx/sites-enabled/;
-		rm -f /var/www/html/index.nginx-debian.html;
-	fi
 	mv ~/conf/my.cnf /etc/mysql/;
 	wget https://wordpress.org/$WPG;
 	tar -xf $WPG;
